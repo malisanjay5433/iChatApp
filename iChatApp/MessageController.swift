@@ -18,7 +18,6 @@ class MessageController: UITableViewController {
         self.tableView.rowHeight = 72
         self.tableView.dataSource  = self
         self.tableView.delegate = self
-//        self.view.backgroundColor =  UIColor(hexString: "#4875B4")
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",style: .plain,target: self,action: #selector(handleLogut))
         checkIfUserIsLoggedIn()
     }
