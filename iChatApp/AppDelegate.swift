@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor.white
         UIApplication.shared.statusBarStyle = .lightContent
+//        makeRootVc()
         FIRApp.configure()
-        logUser()
+//        logUser()
 
 //        window = UIWindow(frame:UIScreen.mainScreen().bounds)
 //        window?.makeKeyAndVisible()
@@ -35,28 +36,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        addStatusBar.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 20);
 //        addStatusBar.backgroundColor = UIColor.grayColor()
 //        self.window?.rootViewController?.view .addSubview(addStatusBar)
-//      makeRootVc()
+      makeRootVc()
        return true
     }
     func makeRootVc(){
         
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: NewViewController())
         
-    }
-    func logUser(){
-        if FIRAuth.auth()!.currentUser != nil {
-//            
-//           let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserViewController") as! UINavigationController
-//            self.window?.rootViewController = tabBar
-//            
-            let messageController = MessageController()
-            let navController = UINavigationController(rootViewController: messageController)
-            self.window?.rootViewController = navController
-        }
+        window?.rootViewController = UINavigationController(rootViewController: iChatMessagesController())
         
+//        let newLoginViewController = NewLoginViewController()
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.makeKeyAndVisible()
+////        window?.rootViewController = UINavigationController(rootViewController:())
+//        window?.rootViewController = newLoginViewController
     }
+//    func logUser(){
+//        if FIRAuth.auth()!.currentUser != nil {
+////            
+////           let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserViewController") as! UINavigationController
+////            self.window?.rootViewController = tabBar
+////            
+//            let messageController = MessageController()
+//            let navController = UINavigationController(rootViewController: messageController)
+//            self.window?.rootViewController = navController
+//        }
+//        
+//    }
     
     
     func applicationWillResignActive(_ application: UIApplication) {
